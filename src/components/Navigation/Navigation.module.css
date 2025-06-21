@@ -1,0 +1,20 @@
+.navList {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+
+.navLink {
+    padding: 10px 0;
+    font-weight: 400;
+
+    text-decoration: none;
+    transition: color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+    }
+}
+
+.isActive {
+}

@@ -1,0 +1,29 @@
+:root {
+    --main-color: #121417;
+    --white-color: #ffffff;
+    --main-bcg: #ffffff;
+    --time: 250ms;
+    --cubic: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    /* Yellow tones */
+    --color-yellow-primary: #f4c550;
+    --color-yellow-light: #fbe9ba;
+
+    /* Green tones */
+    --color-green-dark: #9fbaae;
+    --color-green-light: #cbded3;
+
+    /* Blue tones */
+    --color-blue-medium: #9fb7ce;
+    --color-blue-light: #bfd6ea;
+
+    /* Pink / Red tones */
+    --color-pink-dark: #e0a39a;
+    --color-pink: #f2c0bd;
+    --color-orange: #f0aa8d;
+    --color-peach: #f4c8ba;
+
+    --text-color-primary: #121417;
+    --text-color-secondary: #8a8a89;
+    --bg-color-hero: #bfd6ea;
+}
