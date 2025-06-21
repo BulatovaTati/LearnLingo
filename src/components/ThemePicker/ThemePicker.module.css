@@ -1,0 +1,51 @@
+.themePicker {
+    display: flex;
+    gap: 12px;
+    padding: 1rem;
+}
+
+.dot--yellow,
+.dot--green,
+.dot--blue,
+.dot--pink,
+.dot--orange {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    cursor: pointer;
+    transition: transform var(--time) var(--cubic), border-color var(--time) var(--cubic);
+}
+
+.dot--yellow {
+    background-color: var(--color-yellow-primary);
+}
+
+.dot--green {
+    background-color: var(--color-green-dark);
+}
+
+.dot--blue {
+    background-color: var(--color-blue-medium);
+}
+
+.dot--pink {
+    background-color: var(--color-pink-dark);
+}
+
+.dot--orange {
+    background-color: var(--color-orange);
+}
+
+.dot--yellow:hover,
+.dot--green:hover,
+.dot--blue:hover,
+.dot--pink:hover,
+.dot--orange:hover {
+    opacity: 0.8;
+}
+
+.active {
+    border: 2px solid var(--main-color);
+    transform: scale(1.1);
+}

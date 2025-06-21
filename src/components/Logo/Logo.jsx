@@ -5,8 +5,8 @@ const Logo = () => {
     return (
         <>
             <Link className={s.logo} to="/">
-                <svg width={28} height={28}>
-                    <use href="../../../public/logo.svg"></use>
+                <svg width={20} height={20} className={s.logoIcon}>
+                    <use href="/logo.svg"></use>
                 </svg>
                 <span>LearnLingo</span>
             </Link>

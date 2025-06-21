@@ -13,9 +13,13 @@
 
     font-weight: 700;
     transition: color var(--time) var(--cubic);
+
     &:hover,
     &:focus {
-        color: #91d1d1;
+        color: var(--main-accent);
+    }
+    & > svg {
+        color: var(--main-accent);
     }
 
     @media (max-width: 768px) {
@@ -42,7 +46,7 @@
 
     &:hover,
     &:focus {
-        color: #91d1d1;
+        color: var(--main-accent);
     }
 
     @media (max-width: 768px) {

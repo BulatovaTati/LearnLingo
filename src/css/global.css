@@ -13,3 +13,7 @@ body {
     color: var(--main-color);
     background-color: var(--main-bcg);
 }
+
+body.ReactModal__Body--open {
+    overflow: hidden;
+}

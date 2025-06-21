@@ -4,10 +4,13 @@ import { Toaster } from 'react-hot-toast';
 
 import Loader from '../Loader/Loader';
 import Header from '../Header/Header';
+import { useTheme } from '../ThemeContext/ThemeContext';
 
 const Layout = () => {
+    const { theme } = useTheme();
+
     return (
-        <>
+        <div className={`theme-${theme}`}>
             <Toaster />
             <Suspense fallback={<Loader />}>
                 <Header />
@@ -15,7 +18,7 @@ const Layout = () => {
                     <Outlet />
                 </main>
             </Suspense>
-        </>
+        </div>
     );
 };
 

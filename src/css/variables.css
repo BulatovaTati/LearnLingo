@@ -1,9 +1,17 @@
 :root {
+    /* ————— Static brand tokens ————— */
+
     --main-color: #121417;
     --white-color: #ffffff;
+    --main-accent: var(--color-yellow-primary);
+    --main-accent-light: var(--color-yellow-light);
+    --text-color-secondary: #8a8a89;
     --main-bcg: #ffffff;
+    --bg-color-hero: #bfd6ea;
     --time: 250ms;
     --cubic: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    /* Accent palettes (static) */
 
     /* Yellow tones */
     --color-yellow-primary: #f4c550;
@@ -17,13 +25,41 @@
     --color-blue-medium: #9fb7ce;
     --color-blue-light: #bfd6ea;
 
-    /* Pink / Red tones */
+    /* Pink tones */
     --color-pink-dark: #e0a39a;
     --color-pink: #f2c0bd;
+
+    /* Light Orange tones */
     --color-orange: #f0aa8d;
     --color-peach: #f4c8ba;
+}
 
-    --text-color-primary: #121417;
-    --text-color-secondary: #8a8a89;
-    --bg-color-hero: #bfd6ea;
+/* Default Yellow theme variables applied to root */
+.theme-yellow {
+    --main-accent: var(--color-yellow-primary);
+    --main-accent-light: var(--color-yellow-light);
+}
+
+/* Green theme */
+.theme-green {
+    --main-accent: var(--color-green-dark);
+    --main-accent-light: var(--color-green-light);
+}
+
+/* Blue theme */
+.theme-blue {
+    --main-accent: var(--color-blue-medium);
+    --main-accent-light: var(--color-blue-light);
+}
+
+/* Pink theme */
+.theme-pink {
+    --main-accent: var(--color-pink-dark);
+    --main-accent-light: var(--color-pink);
+}
+
+/* Orange theme */
+.theme-orange {
+    --main-accent: var(--color-orange);
+    --main-accent-light: var(--color-peach);
 }

@@ -13,8 +13,10 @@
 
     &:hover,
     &:focus {
+        color: var(--main-accent);
     }
 }
 
 .isActive {
+    color: var(--main-accent);
 }
