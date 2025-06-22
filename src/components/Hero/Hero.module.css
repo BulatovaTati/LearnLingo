@@ -4,56 +4,83 @@
 }
 
 .heroContainer {
-    max-height: 530px;
-    display: flex;
-    gap: 24px;
+    @media screen and (min-width: 768px) {
+        display: flex;
+        gap: 24px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-height: 530px;
+    }
 }
 
 .firstContainer {
-    padding-left: 64px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    width: 100%;
-    height: 530px;
-
+    padding: 20px;
+    margin-bottom: 24px;
     background-color: var(--bg-color-hero);
     border-radius: 30px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        padding-left: 64px;
+        width: 100%;
+        height: 530px;
+    }
 }
 
 .title {
-    max-width: 548px;
     margin-bottom: 32px;
 
     font-weight: 500;
-    font-size: 48px;
+    font-size: 24px;
     line-height: 1.16667;
     letter-spacing: -0.02em;
+
+    @media screen and (min-width: 1280px) {
+        font-size: 48px;
+        max-width: 548px;
+    }
 }
 
 .titleAccent {
     display: inline-block;
-    width: 195px;
-
+    width: 100px;
     font-style: italic;
     font-weight: 400;
     background-color: var(--main-accent-light);
     border-radius: 8px;
+
+    @media screen and (min-width: 1280px) {
+        width: 195px;
+    }
 }
 
 .descr {
-    margin-bottom: 65px;
-    max-width: 471px;
-
+    margin-bottom: 45px;
     font-weight: 400;
+    font-size: 14px;
     line-height: 1.375;
     letter-spacing: -0.02em;
+
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 65px;
+        max-width: 471px;
+        font-size: 16px;
+    }
 }
 
 .btn {
-    padding: 16px 88px;
-
+    display: block;
+    padding: 16px 0;
+    text-align: center;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.55556;
@@ -67,12 +94,14 @@
     &:focus {
         background-color: var(--main-accent-light);
     }
+
+    @media screen and (min-width: 1280px) {
+        padding: 16px 88px;
+    }
 }
 
 .secondContainer {
     position: relative;
-    min-width: 568px;
-    height: 530px;
 
     display: flex;
     align-items: center;
@@ -80,15 +109,13 @@
 
     background-color: var(--main-accent-light);
     border-radius: 30px;
-}
 
-.girlImage {
-    margin-top: 80px;
-    width: 339px;
-    height: 339px;
-}
+    @media screen and (min-width: 768px) {
+        min-width: 336px;
+    }
 
-.iMacImage {
-    position: absolute;
-    bottom: 0;
+    @media screen and (min-width: 1280px) {
+        min-width: 568px;
+        height: 530px;
+    }
 }

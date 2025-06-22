@@ -6,3 +6,19 @@
     display: flex;
     justify-content: space-between;
 }
+
+.btn {
+    display: block;
+    width: 48px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.55;
+    border-color: transparent;
+    border-radius: 12px;
+    transition: background-color var(--time) var(--cubic);
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: var(--main-accent);
+}

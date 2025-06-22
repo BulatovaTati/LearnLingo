@@ -6,17 +6,23 @@
     padding-top: 40px;
     padding-bottom: 40px;
     width: 100%;
-
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
 
-    gap: 100px;
     border: 1.5px dashed var(--main-accent);
     border-radius: 30px;
+
+    @media screen and (min-width: 768px) {
+        gap: 100px;
+    }
 }
 
 .item {
+    padding: 10px;
     display: flex;
+    align-items: center;
 }
 
 .title {
@@ -27,12 +33,14 @@
 }
 
 .description {
-    max-width: 90px;
-
     font-weight: 400;
     font-size: 14px;
     line-height: 1.28;
     letter-spacing: -0.02em;
 
     color: rgba(18, 20, 23, 0.7);
+
+    @media screen and (min-width: 768px) {
+        max-width: 90px;
+    }
 }

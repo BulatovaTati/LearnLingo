@@ -22,7 +22,6 @@ const Hero = () => {
                     </Link>
                 </div>
                 <div className={s.secondContainer}>
-                    <img className={s.girlImage} src="/images/girl.png" alt="girl" />
                     <img className={s.iMacImage} src={`/images/iMac-${theme}.png`} alt={`iMac in ${theme}`} />
                 </div>
             </div>
