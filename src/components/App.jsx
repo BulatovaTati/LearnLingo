@@ -7,7 +7,7 @@ import Layout from '../components/Layout/Layout';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const TeachersPage = lazy(() => import('../pages/TeachersPage/TeachersPage'));
-const FavoritesPage = lazy(() => import('../pages/FavoritesPage/FavoritesPage'));
+// const FavoritesPage = lazy(() => import('../pages/FavoritesPage/FavoritesPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 function App() {

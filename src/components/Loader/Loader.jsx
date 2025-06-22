@@ -1,11 +1,11 @@
-import { RotatingLines } from 'react-loader-spinner';
+import { RotatingLines, ThreeCircles } from 'react-loader-spinner';
 import s from './Loader.module.css';
 
 const Loader = () => {
     return (
         <div className={s.loaderBackdrop}>
             <div className={s.spinnerWrapper}>
-                <RotatingLines strokeColor="lavender" strokeWidth="4" animationDuration="0.8" width="96" visible={true} />
+                <ThreeCircles visible={true} height="100" width="100" color="#ffffff" ariaLabel="three-circles-loading" wrapperStyle={{}} wrapperClass="" />
             </div>
         </div>
     );

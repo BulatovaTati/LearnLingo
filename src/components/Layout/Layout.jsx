@@ -1,16 +1,21 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { useTheme } from '../ThemeContext/ThemeContext';
 
 import Loader from '../Loader/Loader';
 import Header from '../Header/Header';
-import { useTheme } from '../ThemeContext/ThemeContext';
 
 const Layout = () => {
     const { theme } = useTheme();
 
+    useEffect(() => {
+        document.body.className = '';
+        document.body.classList.add(`theme-${theme}`);
+    }, [theme]);
+
     return (
-        <div className={`theme-${theme}`}>
+        <>
             <Toaster />
             <Suspense fallback={<Loader />}>
                 <Header />
@@ -18,7 +23,7 @@ const Layout = () => {
                     <Outlet />
                 </main>
             </Suspense>
-        </div>
+        </>
     );
 };
 
