@@ -1,0 +1,38 @@
+.benefits {
+    padding-top: 0;
+}
+
+.list {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 100px;
+    border: 1.5px dashed var(--main-accent);
+    border-radius: 30px;
+}
+
+.item {
+    display: flex;
+}
+
+.title {
+    margin-right: 16px;
+    font-size: 28px;
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+}
+
+.description {
+    max-width: 90px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.28;
+    letter-spacing: -0.02em;
+
+    color: rgba(18, 20, 23, 0.7);
+}

@@ -7,7 +7,7 @@ const Hero = () => {
     const { theme } = useTheme();
 
     return (
-        <Section className={s.section}>
+        <Section modClass={s.hero}>
             <div className={s.heroContainer}>
                 <div className={s.firstContainer}>
                     <h1 className={s.title}>

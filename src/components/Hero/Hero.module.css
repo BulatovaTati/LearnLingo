@@ -1,3 +1,8 @@
+.hero {
+    padding-bottom: 0;
+    margin-bottom: 24px;
+}
+
 .heroContainer {
     max-height: 530px;
     display: flex;
