@@ -1,30 +1,56 @@
-# RentalCar Frontend
+# Online Language Tutoring Platform
 
 ## Project Description
 
-RentalCar is the frontend part of a web application for a car rental company. The app allows users to browse a catalog of cars, filter them by different criteria, view detailed information about each
-car, and book a rental.
+An interactive web application that connects students with professional language tutors from around the world.
 
 ## Main Features
 
--   Home page with a banner and call-to-action button
--   Catalog page displaying cars with filtering options (brand, price, mileage)
--   Ability to add cars to favorites, saved even after page reload
--   Detailed car page with booking form
--   Pagination with a "Load More" button to fetch more cars
+Home Page
+
+Brief overview of platform benefits
+
+Call-to-action button leading to Teachers page
+
+Teachers Page
+
+Paginated display with "Load More" button (4 per batch)
+
+Filtering by language, level, and hourly rate
+
+Detailed teacher cards with ratings, reviews, and bio
+
+"Read More" toggles full description
+
+Favorites Page
+
+Private route (accessible only when logged in)
+
+List of saved teachers (persisted via localStorage / Firebase)
 
 ## Technologies Used
 
--   React with Vite bundler
--   Redux for state management
--   React Router for routing
--   Axios for API requests
+React 18 + Vite
+
+Redux
+
+Firebase (Realtime Database + Authentication)
+
+React Router v6
+
+React Hook Form + Yup
+
+Axios
+
+SCSS Modules
+
+ESLint & Prettier
 
 ## Pages and Routes
 
 -   `/` — Home page
--   `/catalog` — Car catalog with filters and favorites
--   `/catalog/:id` — Detailed car page
+-   `/teachers` — Browse & filter tutors
+-   `/favorites` — Saved tutors (protected route)
 
 ## Installation and Running
 
@@ -44,8 +70,23 @@ npm run build
 
 ## Backend Integration
 
-Uses the backend API documented here: [https://car-rental-api.goit.global/api-docs/](https://car-rental-api.goit.global/api-docs/) All filtering and pagination happen via backend requests.
+The application uses Firebase for backend functionality:
 
+Authentication:
+
+Email/password login & registration
+
+Auth state persistence
+
+Protected routes via React Router
+
+Realtime Database:
+
+Stores user favorites and teacher data
+
+Reads teacher profiles with filters & pagination
+
+Syncs favorites with both localStorage and Firebase
 
 ## About the Author
 
@@ -60,4 +101,4 @@ Let’s connect! I’m excited to collaborate, share insights, and contribute to
 
 ## Deployment
 
-The project is deployed at: [https://car-rental-gules-two.vercel.app/](https://car-rental-gules-two.vercel.app/)
+The project is deployed at: [https://learn-lingo-fawn.vercel.app/](https://learn-lingo-fawn.vercel.app/)
