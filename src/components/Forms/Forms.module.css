@@ -1,0 +1,70 @@
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input {
+    padding: 16px 18px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    outline: none;
+    transition: border-color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        border-color: var(--main-accent-light);
+    }
+}
+
+input::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.375;
+    color: var(--main-color);
+}
+
+.fieldPassword {
+    position: relative;
+}
+
+.btn {
+    padding: 16px;
+    border-radius: 12px;
+    background-color: var(--main-accent);
+
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.55;
+    transition: background-color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        background-color: var(--main-accent-light);
+    }
+}
+
+.btnIcon {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: transparent;
+    transition: color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        color: var(--main-accent);
+    }
+}

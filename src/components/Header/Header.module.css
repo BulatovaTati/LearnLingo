@@ -8,7 +8,9 @@
 }
 
 .btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 48px;
     font-size: 14px;
     font-weight: 700;

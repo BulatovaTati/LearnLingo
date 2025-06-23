@@ -3,10 +3,10 @@ import AuthNav from '../AuthNav/AuthNav';
 import ThemePicker from '../ThemePicker/ThemePicker';
 import s from './MobileMenu.module.css';
 
-const MobileMenu = ({ onClose }) => {
+const MobileMenu = ({ openModal, onClose }) => {
     return (
         <div className={s.menu}>
-            <AuthNav />
+            <AuthNav openModal={openModal} />
             <ThemePicker />
             <Navigation onLinkClick={onClose} />
         </div>
