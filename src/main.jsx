@@ -5,8 +5,8 @@ import { ThemeProvider } from './components/ThemeContext/ThemeContext';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import Loader from './components/Loader/Loader';
+import { persistor, store } from './redux/store';
 
-// import { persistor, store } from './redux/store';
 import 'modern-normalize';
 import './index.css';
 import App from './components/App';
@@ -14,13 +14,13 @@ import App from './components/App';
 createRoot(document.getElementById('root')).render(
     <StrictMode>
         <ThemeProvider>
-            {/* <Provider store={store}> */}
-            {/* <PersistGate loading={<Loader />} persistor={persistor}> */}
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-            {/* </PersistGate> */}
-            {/* </Provider> */}{' '}
+            <Provider store={store}>
+                <PersistGate loading={<Loader />} persistor={persistor}>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </PersistGate>
+            </Provider>
         </ThemeProvider>
     </StrictMode>
 );

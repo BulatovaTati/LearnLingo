@@ -1,3 +1,10 @@
 .errorMessage {
+    text-transform: uppercase;
     text-align: center;
+    color: var(--main-accent);
+}
+
+.image {
+    margin: 0 auto;
+    width: 320px;
 }
