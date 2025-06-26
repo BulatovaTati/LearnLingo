@@ -1,0 +1,42 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    background-color: rgba(138, 138, 137, 0.6);
+}
+
+.modal {
+    position: relative;
+    padding: 40px;
+
+    max-width: 480px;
+    width: 94%;
+    border-radius: 30px;
+    background-color: var(--main-bcg);
+    border: 1.5px dashed var(--main-accent);
+    outline: none;
+
+    @media (min-width: 768px) {
+        padding: 64px;
+        max-width: 566px;
+    }
+}
+
+.btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 10px;
+
+    background-color: transparent;
+    border: none;
+    transition: color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        color: var(--main-accent);
+    }
+}

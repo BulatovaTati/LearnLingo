@@ -1,5 +1,5 @@
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { TbMenuOrder } from 'react-icons/tb';
 
 import AuthNav from '../AuthNav/AuthNav';
@@ -8,20 +8,20 @@ import Logo from '../Logo/Logo';
 import Navigation from '../Navigation/Navigation';
 import ThemePicker from '../ThemePicker/ThemePicker';
 import MobileMenu from '../MobileMenu/MobileMenu';
-import ModalLogIn from '../Modals/ModalLogIn';
-import ModalRegistration from '../Modals/ModalRegistration';
+import UserBar from '../UserBar/UserBar';
+
+import { selectLoggedIn, selectUser } from '../../redux/auth/selectors';
+import { useMedia } from '../../hooks/useMedia';
 
 import s from './Header.module.css';
 
-const Header = () => {
-    const [modalType, setModalType] = useState(null);
+const Header = ({ openModal }) => {
+    const isLoggedIn = useSelector(selectLoggedIn);
+    const user = useSelector(selectUser);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const isMobileOrTablet = useMediaQuery({ maxWidth: 1279.98 });
-    const isDesktop = useMediaQuery({ minWidth: 1280 });
+    const { isDesktop, isMobileOrTablet } = useMedia();
 
     const toggleMenu = () => setIsMenuOpen(prev => !prev);
-    const handleOpenModal = type => setModalType(type);
-    const handleCloseModal = () => setModalType(null);
 
     return (
         <header className={s.header}>
@@ -38,16 +38,12 @@ const Header = () => {
                     <>
                         <Navigation />
                         <ThemePicker />
-                        <AuthNav openModal={handleOpenModal} />
+                        {isLoggedIn && user ? <UserBar /> : <AuthNav openModal={openModal} />}
                     </>
                 )}
             </Container>
 
-            {isMenuOpen && !isDesktop && <MobileMenu openModal={handleOpenModal} onClose={() => setIsMenuOpen(false)} />}
-
-            <ModalLogIn isOpen={modalType === 'login'} onClose={handleCloseModal} />
-
-            <ModalRegistration isOpen={modalType === 'register'} onClose={handleCloseModal} />
+            {isMenuOpen && !isDesktop && <MobileMenu openModal={openModal} onClose={() => setIsMenuOpen(false)} />}
         </header>
     );
 };

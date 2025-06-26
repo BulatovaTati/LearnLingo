@@ -1,0 +1,26 @@
+.text {
+    margin-bottom: 3px;
+}
+.text span {
+    font-weight: 700;
+}
+
+.btn {
+    padding: 3px 10px;
+    border-radius: 10px;
+    background-color: var(--main-accent);
+    color: var(--text-color-primary);
+    border-color: transparent;
+    transition: background-color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        background-color: var(--main-accent-light);
+    }
+}
+
+@media (max-width: 1440px) {
+    .content {
+        font-size: 14px;
+    }
+}
