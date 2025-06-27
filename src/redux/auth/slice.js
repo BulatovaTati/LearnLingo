@@ -1,59 +1,74 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logIn, logOut, refreshUser, registerUser } from './operations';
 
+const initialState = {
+    user: null,
+    isLoggedIn: false,
+    isLoading: false,
+    error: null,
+    isRefreshing: false,
+};
+
 const authSlice = createSlice({
     name: 'auth',
-    initialState: {
-        user: null,
-        isLoading: false,
-        error: null,
-        isLoggedIn: false,
-        isRefreshing: false,
-    },
+    initialState,
     extraReducers: builder => {
         builder
-            .addCase(registerUser.fulfilled, (state, action) => {
+            .addCase(registerUser.pending, state => {
+                state.isLoading = true;
+                state.error = null;
+            })
+            .addCase(registerUser.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.error = null;
                 state.isLoggedIn = true;
-                state.user = action.payload;
+                state.user = payload;
             })
-            .addCase(registerUser.rejected, (state, action) => {
-                state.error = action.payload;
+            .addCase(registerUser.rejected, (state, { payload }) => {
+                state.isLoading = false;
+                state.error = payload;
             })
-            .addCase(logIn.fulfilled, (state, action) => {
+            .addCase(logIn.pending, state => {
+                state.error = null;
+                state.isLoading = true;
+            })
+            .addCase(logIn.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.error = null;
                 state.isLoggedIn = true;
-                state.user = action.payload;
+                state.user = payload;
             })
-            .addCase(logIn.rejected, (state, action) => {
-                state.error = action.payload;
+            .addCase(logIn.rejected, (state, { payload }) => {
+                state.isLoading = false;
+                state.error = payload;
             })
             .addCase(logOut.fulfilled, state => {
+                state.error = null;
                 state.isLoggedIn = false;
                 state.user = null;
             })
-            .addCase(logOut.rejected, (state, action) => {
+            .addCase(logOut.rejected, (state, { payload }) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.error = payload;
             })
             .addCase(refreshUser.pending, state => {
                 state.isRefreshing = true;
+                state.error = null;
             })
-            .addCase(refreshUser.fulfilled, (state, action) => {
+            .addCase(refreshUser.fulfilled, (state, { payload }) => {
                 state.isRefreshing = false;
-                if (action.payload) {
+                state.error = null;
+                if (payload) {
                     state.isLoggedIn = true;
-                    state.user = action.payload;
+                    state.user = payload;
                     state.isLoading = false;
-                    state.isRefreshing = false;
-                } else {
-                    state.isLoggedIn = false;
-                    state.user = null;
                 }
             })
-            .addCase(refreshUser.rejected, (state, action) => {
+            .addCase(refreshUser.rejected, (state, { payload }) => {
                 state.isLoading = false;
                 state.isRefreshing = false;
                 state.isLoggedIn = false;
-                state.error = action.payload;
+                state.error = payload;
             });
     },
 });

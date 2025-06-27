@@ -3,22 +3,39 @@ import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import { registerUser } from '../../../redux/auth/operations';
 import { registrationSchemaValidation } from '../../../validations/registrationFormValidation';
 
 import s from '../Forms.module.css';
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ onClose }) => {
     const [showPassword, setShowPassword] = useState(false);
+    const dispatch = useDispatch();
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(registrationSchemaValidation),
+    });
+
+    const onSubmit = data => {
+        dispatch(registerUser(data))
+            .unwrap()
+            .then(() => onClose());
+    };
 
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
     return (
-        <form className={s.form}>
+        <form className={s.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={s.wrapper}>
-                <input type="text" name="name" placeholder="Name" className={s.input} />
-                <input type="email" name="email" placeholder="Email" className={s.input} />
+                <input type="text" name="name" placeholder="Name" className={s.input} {...register('name')} />
+                <input type="email" name="email" placeholder="Email" className={s.input} {...register('email')} />
                 <div className={s.fieldPassword}>
-                    <input type={showPassword ? 'text' : 'password'} name="password" placeholder="Password" className={s.input} />
+                    <input type={showPassword ? 'text' : 'password'} name="password" placeholder="Password" className={s.input} {...register('password')} />
                     <button type="button" className={s.btnIcon} onClick={togglePasswordVisibility}>
                         {showPassword ? <FaEye className={s.iconEye} size={20} /> : <FaEyeSlash className={s.iconEye} size={20} />}
                     </button>

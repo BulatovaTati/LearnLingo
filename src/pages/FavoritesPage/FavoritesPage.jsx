@@ -5,8 +5,8 @@ import s from './FavoritesPage.module.css';
 
 const FavoritesPage = () => {
     return (
-        <Section modClass={s.hero}>
-            <Container modClass={s.heroContainer}>FavoritesPage</Container>
+        <Section>
+            <Container>FavoritesPage</Container>
         </Section>
     );
 };

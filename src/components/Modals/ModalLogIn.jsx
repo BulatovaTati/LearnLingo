@@ -8,7 +8,7 @@ const ModalLogIn = ({ isOpen, onClose }) => {
         <ModalWrapper isOpen={isOpen} onClose={onClose}>
             <p className={s.title}>Log In</p>
             <p className={s.text}>Welcome back! Please enter your credentials to access your account and continue your search for an teacher.</p>
-            <LogInForm />
+            <LogInForm onClose={onClose} />
         </ModalWrapper>
     );
 };
