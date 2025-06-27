@@ -1,0 +1,36 @@
+.btnReadMore {
+    margin-bottom: 32px;
+
+    font-weight: inherit;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.experience {
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
+.content {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-accent) #8a8a89;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.hidden {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.visible {
+    max-height: 500px;
+    opacity: 1;
+}

@@ -1,0 +1,14 @@
+.btnFavorite {
+    margin-left: 64px;
+    padding: 0;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.isFavorite {
+    color: var(--main-accent);
+}

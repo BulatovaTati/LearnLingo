@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.label {
+    margin-right: auto;
+    color: var(--text-color-secondary);
+}
+
+.statisticsList {
+    display: flex;
+    gap: 32px;
+}
+
+.statisticsListItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:not(:last-child)::after {
+        position: absolute;
+        top: 3;
+        right: -16px;
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 16px;
+        background-color: rgba(18, 20, 23, 0.2);
+    }
+}
+
+.starIcon {
+    color: #ffc531;
+}
+
+.price {
+    color: #38cd3e;
+}

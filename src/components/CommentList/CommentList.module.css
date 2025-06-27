@@ -1,0 +1,37 @@
+.commentList {
+    margin-bottom: 32px;
+}
+
+.commentItem:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.commentItemWrap {
+    display: inline-flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.commentItemAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+}
+
+.commentItemName {
+    color: var(--text-color-secondary);
+}
+
+.starIcon {
+    color: #ffc531;
+}
+
+.ratingContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

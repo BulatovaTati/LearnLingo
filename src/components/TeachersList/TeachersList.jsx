@@ -1,20 +1,12 @@
 import { useSelector } from 'react-redux';
 import s from './TeachersList.module.css';
-import { selectTeachers } from '../../redux/teachers/selectors';
+import { selectTeachers, selectVisibleTeachers } from '../../redux/teachers/selectors';
+import TeacherItem from '../TeacherItem/TeacherItem';
 
 const TeachersList = () => {
     const teachers = useSelector(selectTeachers);
-
-    return (
-        <ul className={s.list}>
-            {teachers.length > 0 &&
-                teachers.map(teacher => (
-                    <li key={teacher.id}>
-                        <TeacherItem teacher={teacher} {...teacher} />
-                    </li>
-                ))}
-        </ul>
-    );
+    const visibleTeachers = useSelector(selectVisibleTeachers);
+    return <ul className={s.list}>{teachers.length > 0 && teachers.slice(0, visibleTeachers).map(teacher => <TeacherItem key={teacher.id} teacher={teacher} />)}</ul>;
 };
 
 export default TeachersList;

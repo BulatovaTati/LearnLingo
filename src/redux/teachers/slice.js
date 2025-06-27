@@ -1,16 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addAndRemoveFavoriteTeacher, fetchFavoriteTeachers, fetchTeachers, fetchTeachersByFilter } from './operations';
+import { fetchTeachers, fetchTeachersByFilter } from './operations';
+
+const initialState = {
+    items: [],
+    favoriteItems: [],
+    visibleTeachers: 3,
+    isLoader: false,
+    error: null,
+};
 
 const teachersSlice = createSlice({
     name: 'teachers',
-    initialState: {
-        items: [],
-        favoriteItems: [],
-        visibleTeachers: 3,
-        isLoader: false,
-        error: null,
-    },
+    initialState,
     reducers: {
+        addAndRemoveFavoriteTeacher: (state, action) => {
+            const teacher = action.payload;
+            const index = state.favoriteItems.findIndex(t => t.id === teacher.id);
+            if (index !== -1) {
+                state.favoriteItems.splice(index, 1);
+            } else {
+                state.favoriteItems.push(teacher);
+            }
+        },
         changeVisibleTeachers: (state, { payload }) => {
             state.visibleTeachers = payload;
         },
@@ -32,7 +43,7 @@ const teachersSlice = createSlice({
                 state.error = payload;
             })
             .addCase(fetchTeachersByFilter.pending, state => {
-                state.visibleTeachers = 5;
+                state.visibleTeachers = 3;
                 state.isLoader = true;
                 state.items = [];
             })
@@ -43,34 +54,9 @@ const teachersSlice = createSlice({
             .addCase(fetchTeachersByFilter.rejected, (state, { payload }) => {
                 state.isLoader = false;
                 state.error = payload;
-            })
-            .addCase(addAndRemoveFavoriteTeacher.fulfilled, (state, { payload }) => {
-                state.isLoader = false;
-                const exists = state.favoriteItems.some(t => t.id === payload.id);
-                if (exists) {
-                    state.favoriteItems = state.favoriteItems.filter(teacher => teacher.id !== payload.id);
-                } else {
-                    state.favoriteItems.push(payload);
-                }
-            })
-            .addCase(addAndRemoveFavoriteTeacher.rejected, state => {
-                state.isLoader = false;
-            })
-            .addCase(fetchFavoriteTeachers.pending, state => {
-                state.isLoader = true;
-            })
-            .addCase(fetchFavoriteTeachers.fulfilled, (state, { payload }) => {
-                state.isLoader = false;
-                if (payload) {
-                    state.favoriteItems = payload;
-                }
-            })
-            .addCase(fetchFavoriteTeachers.rejected, (state, { payload }) => {
-                state.isLoader = false;
-                state.error = payload;
             });
     },
 });
 
-export const { changeVisibleTeachers, resetFavorites } = teachersSlice.actions;
+export const { addAndRemoveFavoriteTeacher, changeVisibleTeachers, resetFavorites } = teachersSlice.actions;
 export const teachersReducer = teachersSlice.reducer;

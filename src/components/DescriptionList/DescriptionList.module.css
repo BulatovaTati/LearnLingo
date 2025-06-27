@@ -1,0 +1,13 @@
+.descriptionList {
+    margin-bottom: 16px;
+}
+
+.descriptionListItem {
+    &:not(:last-child) {
+        margin-bottom: 8px;
+    }
+}
+
+.title {
+    color: var(--text-color-secondary);
+}
