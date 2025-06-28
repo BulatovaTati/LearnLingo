@@ -11,12 +11,12 @@ const TeacherSummary = ({ teacher }) => {
             <span className={s.label}>Languages</span>
             <ul className={s.statisticsList}>
                 <li className={s.statisticsListItem}>
-                    <IoMdBook size={20} />
+                    <IoMdBook size={17} />
                     Lessons online
                 </li>
                 <li className={s.statisticsListItem}>Lessons done: {lessons_done}</li>
                 <li className={s.statisticsListItem}>
-                    <IoMdStar className={s.starIcon} size={20} />
+                    <IoMdStar className={s.starIcon} size={17} />
                     Rating: {rating}
                 </li>
                 <li className={s.statisticsListItem}>

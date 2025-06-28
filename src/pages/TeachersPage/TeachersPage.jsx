@@ -28,7 +28,7 @@ const TeachersPage = () => {
     return (
         <Section modClass={s.section}>
             <Container>
-                <TeachersList />
+                <TeachersList teachers={teachers} />
                 {teachers.length === 0 && !isLoading && <ErrorMessage message={' No teachers found'} />}
                 {visibleTeachers < teachers.length && !isLoading && <LoadMoreBtn handleLoadMore={handleLoadMore} />}
             </Container>

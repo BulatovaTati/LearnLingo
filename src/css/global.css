@@ -16,3 +16,7 @@ body {
 body.ReactModal__Body--open {
     overflow: hidden;
 }
+
+&::-webkit-scrollbar {
+    display: none;
+}

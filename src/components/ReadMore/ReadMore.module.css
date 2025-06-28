@@ -18,9 +18,9 @@
     max-height: 1000px;
     opacity: 1;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: var(--main-accent) #8a8a89;
+    scrollbar-color: var(--main-accent-light) var(--main-accent);
     transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
