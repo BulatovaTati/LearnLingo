@@ -1,12 +1,23 @@
 import { useState, useRef } from 'react';
-import s from './ReadMore.module.css';
+import { useOutletContext } from 'react-router-dom';
+import LanguageLevelList from '../LanguageLevelList/LanguageLevelList';
 import CommentList from '../CommentList/CommentList';
+import s from './ReadMore.module.css';
 
-const ReadMore = ({ reviews, experience }) => {
+const ReadMore = ({ levels, reviews, experience, name, surname, avatar_url }) => {
     const [isHidden, setIsHidden] = useState(true);
     const contentRef = useRef(null);
 
     const handleHidden = () => setIsHidden(prev => !prev);
+    const { openModal } = useOutletContext();
+
+    const handleOpenModal = () => {
+        openModal('booking', {
+            name: name,
+            surname: surname,
+            avatar_url: avatar_url,
+        });
+    };
 
     return (
         <>
@@ -18,6 +29,13 @@ const ReadMore = ({ reviews, experience }) => {
             <button type="button" className={s.btnReadMore} onClick={handleHidden}>
                 {isHidden ? 'Read more' : 'Read less'}
             </button>
+
+            <LanguageLevelList levels={levels} />
+            {!isHidden && (
+                <button type="button" className={s.btnBook} onClick={handleOpenModal}>
+                    Book trial lesson
+                </button>
+            )}
         </>
     );
 };

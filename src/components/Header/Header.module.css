@@ -1,10 +1,24 @@
 .header {
     padding-top: 20px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+
+    background-color: var(--main-bcg);
 }
 
 .headerContainer {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    padding-bottom: 10px;
+
+    @media screen and (min-width: 1280px) {
+        padding-bottom: 0;
+    }
 }
 
 .btn {
@@ -23,4 +37,11 @@
 .btn:hover,
 .btn:focus {
     background-color: var(--main-accent);
+}
+main {
+    padding-top: 69px;
+
+    @media screen and (min-width: 1280px) {
+        padding-top: 60px;
+    }
 }

@@ -6,19 +6,27 @@ const Benefits = () => {
         <Section modClass={s.benefits}>
             <ul className={s.list}>
                 <li className={s.item}>
-                    <h3 className={s.title}>32,000 +</h3>
+                    <h3 className={s.title}>
+                        32,000 <span className={s.plus}>+</span>
+                    </h3>
                     <p className={s.description}>Experienced tutors</p>
                 </li>
                 <li className={s.item}>
-                    <h3 className={s.title}>300,000 +</h3>
+                    <h3 className={s.title}>
+                        300,000 <span className={s.plus}>+</span>
+                    </h3>
                     <p className={s.description}>5-star tutor reviews</p>
                 </li>
                 <li className={s.item}>
-                    <h3 className={s.title}>120 +</h3>
+                    <h3 className={s.title}>
+                        120 <span className={s.plus}>+</span>
+                    </h3>
                     <p className={s.description}>Subjects taught</p>
                 </li>
                 <li className={s.item}>
-                    <h3 className={s.title}>200 +</h3>
+                    <h3 className={s.title}>
+                        200 <span className={s.plus}>+</span>
+                    </h3>
                     <p className={s.description}>Tutor nationalities</p>
                 </li>
             </ul>

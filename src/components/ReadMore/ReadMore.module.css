@@ -34,3 +34,25 @@
     max-height: 500px;
     opacity: 1;
 }
+
+.btnBook {
+    display: block;
+
+    border-radius: 12px;
+    padding: 16px 48px;
+    min-width: 232px;
+
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55556;
+
+    background-color: var(--main-accent);
+    border: none;
+    outline: none;
+    transition: background-color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        background-color: var(--main-accent-light);
+    }
+}

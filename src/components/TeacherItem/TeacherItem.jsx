@@ -1,12 +1,10 @@
 import TeacherSummary from '../TeacherSummary/TeacherSummary';
-import LanguageLevelList from '../LanguageLevelList/LanguageLevelList';
 import DescriptionList from '../DescriptionList/DescriptionList';
-
 import ReadMore from '../ReadMore/ReadMore';
 import s from './TeacherItem.module.css';
 
 const TeacherItem = ({ teacher }) => {
-    const { name, surname, levels, avatar_url, reviews, experience } = teacher;
+    const { name, surname, avatar_url } = teacher;
 
     return (
         <li className={s.card}>
@@ -21,8 +19,7 @@ const TeacherItem = ({ teacher }) => {
                     {name} {surname}
                 </p>
                 <DescriptionList {...teacher} />
-                <ReadMore experience={experience} reviews={reviews} />
-                <LanguageLevelList levels={levels} />
+                <ReadMore {...teacher} />
             </div>
         </li>
     );

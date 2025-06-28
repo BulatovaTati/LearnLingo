@@ -23,17 +23,26 @@
     &:focus {
         border-color: var(--main-accent-light);
     }
+
+    &::placeholder {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.375;
+        color: var(--main-color);
+    }
 }
 
-input::placeholder {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.375;
-    color: var(--main-color);
-}
-
-.fieldPassword {
+.inputGroup {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.error {
+    font-size: 10px;
+    color: #f44336;
+    margin: 0;
 }
 
 .btn {
@@ -67,4 +76,75 @@ input::placeholder {
     &:focus {
         color: var(--main-accent);
     }
+}
+
+.fieldset {
+    border: none;
+}
+
+.questionText {
+    margin-bottom: 21px;
+
+    font-size: 24px;
+    line-height: 1.33;
+    color: var(--text-color-primary);
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    font-weight: 400;
+    line-height: 1.375;
+}
+
+.radioInput {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.customRadio {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #9fb7ce;
+    border-radius: 50%;
+
+    transition: border-color var(--time) var(--cubic);
+
+    &::after {
+        transition: background-color var(--time) var(--cubic);
+    }
+}
+
+.radioInput:checked + .customRadio {
+    border: 2px solid var(--main-accent);
+}
+
+.radioInput:checked + .customRadio::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+
+    background-color: var(--main-accent);
+    border-radius: 50%;
+}
+
+.radioInput:checked:hover + .customRadio::after {
+    background-color: var(--main-accent-light);
+}
+
+.radioLabel:hover .customRadio {
+    border-color: var(--main-accent-light);
 }

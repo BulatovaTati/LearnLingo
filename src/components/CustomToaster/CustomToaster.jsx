@@ -3,10 +3,10 @@ import { Toaster, toast } from 'react-hot-toast';
 const toastStyles = {
     success: {
         style: {
-            border: '3px solid #0b44cd',
+            border: '3px solid var(--main-accent)',
             padding: '10px',
-            color: '#fbfbfb',
-            backgroundColor: '#3470ff',
+            color: '#101828',
+            backgroundColor: 'var(--main-accent-light)',
         },
     },
     error: {

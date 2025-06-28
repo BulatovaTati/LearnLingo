@@ -7,6 +7,12 @@
 
 .icon {
     cursor: pointer;
+    transition: color var(--time) var(--cubic);
+
+    &:hover,
+    &:focus {
+        color: var(--main-accent-light);
+    }
 }
 
 .isFavorite {

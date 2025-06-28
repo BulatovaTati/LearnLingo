@@ -10,7 +10,7 @@ const ModalWrapper = ({ children, isOpen, onClose }) => {
     return (
         <Modal isOpen={isOpen} onRequestClose={onClose} className={s.modal} overlayClassName={s.overlay} preventScroll={false}>
             <button className={s.btn} onClick={onClose}>
-                <IoMdClose size={26} />
+                <IoMdClose size={30} />
             </button>
             {children}
         </Modal>

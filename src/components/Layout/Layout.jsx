@@ -2,18 +2,17 @@ import { Suspense, useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { useTheme } from '../ThemeContext/ThemeContext';
-import ModalLogIn from '../Modals/ModalLogIn';
-import ModalRegistration from '../Modals/ModalRegistration';
 import Loader from '../Loader/Loader';
 import Header from '../Header/Header';
+import ModalBook from '../Modals/ModalBook';
+import ModalLogIn from '../Modals/ModalLogIn';
+import ModalRegistration from '../Modals/ModalRegistration';
+import useModal from '../../hooks/useModal.jsx';
 
 const Layout = () => {
-    const [modalType, setModalType] = useState(null);
-
     const { theme } = useTheme();
 
-    const openModal = type => setModalType(type);
-    const closeModal = () => setModalType(null);
+    const { modalType, modalData, openModal, closeModal } = useModal();
 
     useEffect(() => {
         document.body.className = '';
@@ -31,7 +30,10 @@ const Layout = () => {
             </Suspense>
 
             <ModalLogIn isOpen={modalType === 'login'} onClose={closeModal} />
+
             <ModalRegistration isOpen={modalType === 'register'} onClose={closeModal} />
+
+            <ModalBook isOpen={modalType === 'booking'} onClose={closeModal} {...modalData} />
         </>
     );
 };
