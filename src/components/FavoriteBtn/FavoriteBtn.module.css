@@ -1,8 +1,14 @@
 .btnFavorite {
-    margin-left: 64px;
-    padding: 0;
+    position: absolute;
+    top: 16px;
+    right: 12px;
     border-color: transparent;
     background-color: transparent;
+
+    @media screen and (min-width: 1280px) {
+        top: 24px;
+        right: 24px;
+    }
 }
 
 .icon {

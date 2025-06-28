@@ -2,8 +2,16 @@
     margin-bottom: 32px;
 }
 
-.commentItem:not(:last-child) {
-    margin-bottom: 32px;
+.commentItem {
+    font-size: 14px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 16px;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 32px;
+    }
 }
 
 .commentItemWrap {
