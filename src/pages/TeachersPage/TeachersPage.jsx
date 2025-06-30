@@ -6,11 +6,13 @@ import Container from '../../components/Container/Container';
 import TeachersList from '../../components/TeachersList/TeachersList';
 import LoadMoreBtn from '../../components/LoadMoreBtn/LoadMoreBtn';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Filter from '../../components/Filter/Filter';
 
-import s from './TeachersPage.module.css';
 import { selectLoading, selectTeachers, selectVisibleTeachers } from '../../redux/teachers/selectors';
 import { fetchTeachers } from '../../redux/teachers/operations';
 import { changeVisibleTeachers } from '../../redux/teachers/slice';
+
+import s from './TeachersPage.module.css';
 
 const TeachersPage = () => {
     const dispatch = useDispatch();
@@ -28,6 +30,7 @@ const TeachersPage = () => {
     return (
         <Section modClass={s.section}>
             <Container>
+                <Filter />
                 <TeachersList teachers={teachers} />
                 {teachers.length === 0 && !isLoading && <ErrorMessage message={' No teachers found'} />}
                 {visibleTeachers < teachers.length && !isLoading && <LoadMoreBtn handleLoadMore={handleLoadMore} />}

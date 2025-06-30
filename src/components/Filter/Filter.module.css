@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 32px;
+
+    @media screen and (min-width: 1280px) {
+        justify-content: start;
+    }
+}
+
+.fieldLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.28;
+    color: var(--text-color-secondary);
+}

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { auth, db } from '../../firebase';
-import { endAt, equalTo, get, orderByChild, query, ref, remove, set, startAt } from 'firebase/database';
+import { db } from '../../firebase';
+import { ref, query, get } from 'firebase/database';
 
 const collectionRef = ref(db, 'teachers');
 
@@ -16,21 +16,33 @@ export const fetchTeachers = createAsyncThunk('teachers/fetchTeachers', async (_
     }
 });
 
-export const fetchTeachersByFilter = createAsyncThunk('teachers/fetchTeachersByFilter', async (filter, { thunkAPI }) => {
-    let teachersQuery;
-
+export const fetchTeachersByFilter = createAsyncThunk('teachers/fetchTeachersByFilter', async (filters = {}, { rejectWithValue }) => {
     try {
-        if (filter.name === 'price_per_hour') {
-            const minPrice = Number(filter.value);
-            const maxPrice = Number(filter.value) + 10;
-            teachersQuery = query(collectionRef, orderByChild(filter.name), startAt(minPrice), endAt(maxPrice));
-        } else {
-            teachersQuery = query(collectionRef, orderByChild(`${filter.name}/${filter.value}`), equalTo(true));
+        const teachersRef = ref(db, 'teachers');
+        const snapshot = await get(teachersRef).catch(err => {
+            throw err;
+        });
+
+        let teachers = snapshot.exists() ? Object.values(snapshot.val()) : [];
+
+        if (filters.lang?.value) {
+            teachers = teachers.filter(t => (t.languages || []).some(l => l.toLowerCase() === filters.lang.value.toLowerCase()));
         }
-        const filteredTeachers = await get(teachersQuery);
-        const data = filteredTeachers.exists() ? Object.values(filteredTeachers.val()) : [];
-        return data;
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+
+        if (filters.level?.label) {
+            teachers = teachers.filter(t => (t.levels || []).includes(filters.level.label));
+        }
+
+        if (filters.price?.label) {
+            const [min, max] = filters.price.label
+                .replace('$', '')
+                .split('-')
+                .map(s => Number(s.trim()));
+            teachers = teachers.filter(t => t.price_per_hour >= min && t.price_per_hour <= max);
+        }
+
+        return teachers;
+    } catch (err) {
+        return rejectWithValue(err.message || 'Failed to load teachers');
     }
 });

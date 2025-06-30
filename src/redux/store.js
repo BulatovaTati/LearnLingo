@@ -5,6 +5,7 @@ import persistReducer from 'redux-persist/es/persistReducer';
 import persistStore from 'redux-persist/es/persistStore';
 import { teachersReducer } from './teachers/slice';
 import { authReducer } from './auth/slice';
+import { filterReducer } from './filter/slice';
 
 const authPersistConfig = {
     key: 'root',
@@ -25,6 +26,7 @@ export const store = configureStore({
     reducer: {
         auth: authPersistedReducer,
         teachers: teachersPersistedReducer,
+        filter: filterReducer,
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({
