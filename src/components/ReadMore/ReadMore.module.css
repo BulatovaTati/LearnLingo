@@ -1,6 +1,5 @@
 .btnReadMore {
     margin-bottom: 32px;
-
     font-weight: inherit;
     text-decoration: underline;
     text-decoration-skip-ink: none;
@@ -43,27 +42,7 @@
 }
 
 .btnBook {
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px;
     padding: 16px 48px;
-    min-width: 232px;
-
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.55556;
-
-    background-color: var(--main-accent);
-    border: none;
-    outline: none;
-    transition: background-color var(--time) var(--cubic);
-
-    &:hover,
-    &:focus {
-        background-color: var(--main-accent-light);
-    }
-
-    @media screen and (min-width: 768px) {
-        margin: 0;
-    }
+    width: 232px;
+    margin-right: auto;
 }

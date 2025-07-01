@@ -7,6 +7,7 @@ export const customStylesLang = {
         backgroundColor: 'var(--main-bcg)',
         border: 'none',
         boxShadow: 'none',
+        cursor: 'pointer',
     }),
     menu: base => ({
         ...base,
@@ -28,7 +29,7 @@ export const customStylesLang = {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         color: 'rgba(18, 20, 23, 0.2)',
-
+        cursor: 'pointer',
         backgroundColor: state.isSelected ? 'var(--main-accent-light)' : 'transparent',
         '&:hover': {
             color: 'var(--main-color)',
@@ -59,7 +60,14 @@ export const customStylesLang = {
     }),
     indicatorSeparator: base => ({
         ...base,
-
         display: 'none',
+    }),
+    dropdownIndicator: base => ({
+        ...base,
+        color: 'var(--main-color)',
+    }),
+    clearIndicator: base => ({
+        ...base,
+        color: 'var(--main-color)',
     }),
 };

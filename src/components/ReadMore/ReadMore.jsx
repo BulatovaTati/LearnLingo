@@ -3,6 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import LanguageLevelList from '../LanguageLevelList/LanguageLevelList';
 import CommentList from '../CommentList/CommentList';
 import s from './ReadMore.module.css';
+import CustomButton from '../CustomButton/CustomButton.jsx';
 
 const ReadMore = ({ levels, reviews, experience, name, surname, avatar_url }) => {
     const [isHidden, setIsHidden] = useState(true);
@@ -32,9 +33,9 @@ const ReadMore = ({ levels, reviews, experience, name, surname, avatar_url }) =>
 
             <LanguageLevelList levels={levels} />
             {!isHidden && (
-                <button type="button" className={s.btnBook} onClick={handleOpenModal}>
+                <CustomButton modClass={s.btnBook} fn={handleOpenModal}>
                     Book trial lesson
-                </button>
+                </CustomButton>
             )}
         </>
     );

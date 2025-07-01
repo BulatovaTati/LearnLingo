@@ -7,6 +7,10 @@ export const customStylesPrice = {
         backgroundColor: 'var(--main-bcg)',
         border: 'none',
         boxShadow: 'none',
+        cursor: 'pointer',
+        '&:hover': {
+            backgroundColor: 'var(--main-accent)',
+        },
     }),
     menu: base => ({
         ...base,
@@ -26,6 +30,7 @@ export const customStylesPrice = {
         lineHeight: '1.11',
         color: 'rgba(18, 20, 23, 0.2)',
         backgroundColor: state.isSelected ? 'var(--main-accent-light)' : 'transparent',
+        cursor: 'pointer',
         '&:hover': {
             color: 'var(--main-color)',
             backgroundColor: 'var(--main-accent-light)',
@@ -48,7 +53,7 @@ export const customStylesPrice = {
     }),
     placeholder: base => ({
         ...base,
-        color: '#101828',
+        color: 'var(--main-color)',
         fontSize: '16px',
         fontWeight: '500',
         lineHeight: '1.25',
@@ -56,5 +61,13 @@ export const customStylesPrice = {
     indicatorSeparator: base => ({
         ...base,
         display: 'none',
+    }),
+    dropdownIndicator: base => ({
+        ...base,
+        color: 'var(--main-color)',
+    }),
+    clearIndicator: base => ({
+        ...base,
+        color: 'var(--main-color)',
     }),
 };

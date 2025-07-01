@@ -1,10 +1,11 @@
+import CustomButton from '../CustomButton/CustomButton';
 import s from './LoadMoreBtn.module.css';
 
 const LoadMoreBtn = ({ handleLoadMore }) => {
     return (
-        <button type="button" className={s.loadMoreBtn} onClick={handleLoadMore}>
-            Load more
-        </button>
+        <CustomButton modClass={s.loadMore} fn={handleLoadMore}>
+            Load More
+        </CustomButton>
     );
 };
 

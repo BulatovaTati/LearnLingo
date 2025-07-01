@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import CustomButton from '../../CustomButton/CustomButton';
 
 import { registerUser } from '../../../redux/auth/operations';
 import { registrationSchemaValidation } from '../../../validations/registrationFormValidation';
@@ -48,9 +49,9 @@ const RegistrationForm = ({ onClose }) => {
                     </button>
                 </div>
             </div>
-            <button type="submit" className={s.btn}>
+            <CustomButton type="submit" modClass={s.modalBtn}>
                 Sign Up
-            </button>
+            </CustomButton>
         </form>
     );
 };

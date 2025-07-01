@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import CustomButton from '../../CustomButton/CustomButton';
 import { logInSchemaValidation } from '../../../validations/loginFormValidation';
 import { logIn } from '../../../redux/auth/operations';
 
@@ -43,9 +44,9 @@ const LogInForm = ({ onClose }) => {
                     </button>
                 </div>
             </div>
-            <button type="submit" className={s.btn}>
+            <CustomButton type="submit" modClass={s.modalBtn}>
                 Log In
-            </button>
+            </CustomButton>
         </form>
     );
 };

@@ -72,21 +72,11 @@ npm run build
 
 The application uses Firebase for backend functionality:
 
-Authentication:
-
-Email/password login & registration
-
-Auth state persistence
-
-Protected routes via React Router
+Authentication: Email/password login & registration
 
 Realtime Database:
 
-Stores user favorites and teacher data
-
-Reads teacher profiles with filters & pagination
-
-Syncs favorites with both localStorage and Firebase
+Reads teacher profiles with filters & pagination Syncs favorites with localStorage
 
 ## About the Author
 

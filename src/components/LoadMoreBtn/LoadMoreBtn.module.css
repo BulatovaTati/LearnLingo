@@ -1,19 +1,5 @@
-.loadMoreBtn {
-    display: block;
+.loadMore {
     padding: 16px 48px;
-    min-width: 183px;
+    width: 183px;
     margin: 0 auto;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.55;
-
-    background-color: var(--main-accent);
-    border-color: transparent;
-    border-radius: 12px;
-    transition: background-color var(--time) var(--cubic);
-
-    &:hover,
-    &:focus {
-        background-color: var(--main-accent-light);
-    }
 }

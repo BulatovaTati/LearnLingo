@@ -45,22 +45,8 @@
     margin: 0;
 }
 
-.btn {
+.modalBtn {
     padding: 16px;
-    border-radius: 12px;
-    background-color: var(--main-accent);
-
-    border: none;
-    outline: none;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.55;
-    transition: background-color var(--time) var(--cubic);
-
-    &:hover,
-    &:focus {
-        background-color: var(--main-accent-light);
-    }
 }
 
 .btnIcon {

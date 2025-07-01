@@ -2,6 +2,7 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { bookingValidationSchema } from '../../../validations/bookingValidationSchema';
+import CustomButton from '../../CustomButton/CustomButton';
 import { showToast } from '../../CustomToaster/CustomToaster';
 import { options } from '../../../constants/bookingFromOptions';
 
@@ -72,9 +73,9 @@ const BookForm = ({ onClose }) => {
                 </div>
             </div>
 
-            <button type="submit" className={s.btn}>
+            <CustomButton type="submit" modClass={s.modalBtn}>
                 Book
-            </button>
+            </CustomButton>
         </form>
     );
 };
