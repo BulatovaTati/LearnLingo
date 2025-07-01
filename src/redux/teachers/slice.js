@@ -5,7 +5,7 @@ const initialState = {
     items: [],
     favoriteItems: [],
     visibleTeachers: 3,
-    isLoader: false,
+    isLoading: false,
     error: null,
 };
 
@@ -32,27 +32,27 @@ const teachersSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(fetchTeachers.pending, state => {
-                state.isLoader = true;
+                state.isLoading = true;
             })
             .addCase(fetchTeachers.fulfilled, (state, { payload }) => {
-                state.isLoader = false;
+                state.isLoading = false;
                 state.items = payload;
             })
             .addCase(fetchTeachers.rejected, (state, { payload }) => {
-                state.isLoader = false;
+                state.isLoading = false;
                 state.error = payload;
             })
             .addCase(fetchTeachersByFilter.pending, state => {
                 state.visibleTeachers = 3;
-                state.isLoader = true;
+                state.isLoading = true;
                 state.items = [];
             })
             .addCase(fetchTeachersByFilter.fulfilled, (state, { payload }) => {
-                state.isLoader = false;
+                state.isLoading = false;
                 state.items = payload;
             })
             .addCase(fetchTeachersByFilter.rejected, (state, { payload }) => {
-                state.isLoader = false;
+                state.isLoading = false;
                 state.error = payload;
             });
     },

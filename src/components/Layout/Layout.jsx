@@ -22,10 +22,13 @@ const Layout = () => {
         document.body.classList.add(`theme-${theme}`);
     }, [theme]);
 
+    if (isLoading) {
+        return <Loader />;
+    }
+
     return (
         <>
             <Toaster />
-            {isLoading && <Loader />}
             <Suspense fallback={<Loader />}>
                 <Header openModal={openModal} />
                 <main>
@@ -34,9 +37,7 @@ const Layout = () => {
             </Suspense>
 
             <ModalLogIn isOpen={modalType === 'login'} onClose={closeModal} />
-
             <ModalRegistration isOpen={modalType === 'register'} onClose={closeModal} />
-
             <ModalBook isOpen={modalType === 'booking'} onClose={closeModal} {...modalData} />
         </>
     );

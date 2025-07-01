@@ -14,6 +14,7 @@ import { changeVisibleTeachers } from '../../redux/teachers/slice';
 import { useMedia } from '../../hooks/useMedia';
 
 import s from './TeachersPage.module.css';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const TeachersPage = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,10 @@ const TeachersPage = () => {
     useEffect(() => {
         dispatch(fetchTeachers());
     }, [dispatch]);
+
+    if (isLoading) {
+        return <Loader />;
+    }
 
     const handleLoadMore = () => {
         dispatch(changeVisibleTeachers(visibleTeachers + 4));

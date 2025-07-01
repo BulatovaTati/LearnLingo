@@ -14,7 +14,7 @@
     border-radius: 35px;
     padding: 8px 12px;
 
-    &:first-child {
+    &.active {
         background-color: var(--main-accent);
     }
 }
