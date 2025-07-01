@@ -3,9 +3,13 @@ import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
 import CustomButton from '../../CustomButton/CustomButton';
 import { logInSchemaValidation } from '../../../validations/loginFormValidation';
 import { logIn } from '../../../redux/auth/operations';
+
+import { showToast } from '../../CustomToaster/CustomToaster';
+import { formatFirebaseError } from '../../../validations/fireBaseErrors';
 
 import s from '../Forms.module.css';
 
@@ -24,7 +28,11 @@ const LogInForm = ({ onClose }) => {
     const onSubmit = data => {
         dispatch(logIn(data))
             .unwrap()
-            .then(() => onClose());
+            .then(() => onClose())
+            .catch(err => {
+                const msg = typeof err === 'string' ? err : err?.message;
+                showToast('error', formatFirebaseError(msg));
+            });
     };
 
     const togglePasswordVisibility = () => setShowPassword(!showPassword);

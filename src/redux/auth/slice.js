@@ -33,7 +33,6 @@ const authSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(logIn.fulfilled, (state, { payload }) => {
-                console.log('payload: ', payload);
                 state.isLoading = false;
                 state.error = null;
                 state.isLoggedIn = true;
@@ -43,12 +42,18 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.error = payload;
             })
+            .addCase(logOut.pending, state => {
+                state.isLoading = true;
+                state.error = null;
+            })
             .addCase(logOut.fulfilled, state => {
                 state.error = null;
+                state.isLoading = false;
                 state.isLoggedIn = false;
                 state.user = null;
             })
             .addCase(logOut.rejected, (state, { payload }) => {
+                state.isLoading = false;
                 state.isLoading = false;
                 state.error = payload;
             })

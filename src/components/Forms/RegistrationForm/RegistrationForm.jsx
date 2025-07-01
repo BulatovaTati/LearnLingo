@@ -3,10 +3,13 @@ import { useDispatch } from 'react-redux';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import CustomButton from '../../CustomButton/CustomButton';
 
+import CustomButton from '../../CustomButton/CustomButton';
 import { registerUser } from '../../../redux/auth/operations';
 import { registrationSchemaValidation } from '../../../validations/registrationFormValidation';
+
+import { showToast } from '../../CustomToaster/CustomToaster';
+import { formatFirebaseError } from '../../../validations/fireBaseErrors';
 
 import s from '../Forms.module.css';
 
@@ -25,7 +28,11 @@ const RegistrationForm = ({ onClose }) => {
     const onSubmit = data => {
         dispatch(registerUser(data))
             .unwrap()
-            .then(() => onClose());
+            .then(() => onClose())
+            .catch(err => {
+                const msg = typeof err === 'string' ? err : err?.message;
+                showToast('error', formatFirebaseError(msg));
+            });
     };
 
     const togglePasswordVisibility = () => setShowPassword(!showPassword);
