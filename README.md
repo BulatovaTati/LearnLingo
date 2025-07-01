@@ -1,34 +1,36 @@
-# Online Language Tutoring Platform
-
-## Project Description
+## 🌐 Online Language Tutoring Platform
 
 An interactive web application that connects students with professional language tutors from around the world.
 
-## Main Features
+## ✨ Main Features
 
-Home Page
+🔐 Authentication Secure login and registration via Firebase Authentication
 
-Brief overview of platform benefits
+📱 Responsive Design Optimized for desktop, tablet, and mobile screens
 
-Call-to-action button leading to Teachers page
+🏠 Home Page Concise overview of platform benefits
 
-Teachers Page
+Call-to-action button linking to the Teachers page
 
-Paginated display with "Load More" button (4 per batch)
+👨‍🏫 Teachers Page Paginated display (4 cards per load) with "Load More" functionality
 
-Filtering by language, level, and hourly rate
+Filter teachers by language, level, and hourly rate
 
-Detailed teacher cards with ratings, reviews, and bio
+Detailed teacher cards with:
 
-"Read More" toggles full description
+⭐ Ratings
 
-Favorites Page
+💬 Reviews
 
-Private route (accessible only when logged in)
+📖 Expandable bio
 
-List of saved teachers (persisted via localStorage / Firebase)
+❤️ Favorites Page Private route (visible only to logged-in users)
 
-## Technologies Used
+Saved teachers list
+
+Data persisted via localStorage
+
+## 🛠️ Technologies Used
 
 React 18 + Vite
 
@@ -44,15 +46,13 @@ Axios
 
 SCSS Modules
 
-ESLint & Prettier
-
-## Pages and Routes
+## 📁 Pages and Routes
 
 -   `/` — Home page
 -   `/teachers` — Browse & filter tutors
 -   `/favorites` — Saved tutors (protected route)
 
-## Installation and Running
+## 🧩 Installation & Setup
 
 ```bash
 # Clone the repository
@@ -68,27 +68,30 @@ npm run dev
 npm run build
 ```
 
-## Backend Integration
+## 🔌 Backend Integration
 
-The application uses Firebase for backend functionality:
+🔑 Firebase Authentication
 
-Authentication: Email/password login & registration
+-   Email/password registration and login
 
-Realtime Database:
+📦 Realtime Database
 
-Reads teacher profiles with filters & pagination Syncs favorites with localStorage
+-   Fetch teachers
+-   Sync favorites with localStorage for persistence
 
-## About the Author
+## 👩‍💻 About the Author
 
-Hi 👋, I'm **Tati** A Front-End Developer committed to building responsive and user-friendly websites. GitHub: [bulatovatati](https://github.com/bulatovatati)
+Hi 👋, I’m Tati, a passionate Front-End Developer focused on building clean, user-friendly applications. GitHub: [bulatovatati](https://github.com/bulatovatati)
 
 🌱 Currently improving skills in JavaScript, React.js, and Node.js 📝 Regularly write articles on LinkedIn 📫 Contact me at: [kohodatat@gmail.com](mailto:kohodatat@gmail.com)
+
+🔗 LinkedIn: [[https://www.linkedin.com/in/tetiana-bulatova](https://www.linkedin.com/in/tetiana-bulatova)]
 
 I am a dedicated technology leader with over 5 years of experience as the Head of Neural System at Imperial Holding 😊. Now I’m seeking new opportunities as a Front-End Developer. Throughout my
 career, I’ve led teams to build innovative websites and successfully managed projects from concept to completion three times.
 
 Let’s connect! I’m excited to collaborate, share insights, and contribute to innovative frontend development and AI technology projects 🤝.
 
-## Deployment
+## 🚀 Live Demo
 
 The project is deployed at: [https://learn-lingo-fawn.vercel.app/](https://learn-lingo-fawn.vercel.app/)
